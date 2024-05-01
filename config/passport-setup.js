@@ -10,7 +10,8 @@ passport.serializeUser((user, done) => {    // called when done is called from c
 
 passport.deserializeUser((id, done) => {    // called when done is called from callback in passport.use
     // find user by id
-    console.log(id)
+    // console.log(id)
+    done(id)
     // call done when done
 })
 
@@ -22,10 +23,8 @@ passport.use(
     }, (accessToken, refreshToken, profile, done) => {
         // console.log(p1)
         // // passport callback function
-        console.log(accessToken);
-        console.log(refreshToken);
-        console.log(profile);
-        done(null, profile.id);
+
+        done(null, profile);
 
         // if user doesn't exist save his profile, else get his data
     })
